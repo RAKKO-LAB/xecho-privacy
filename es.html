@@ -28,7 +28,7 @@
 <body>
   <p class="lang"><a href="./">日本語</a> | <a href="en.html">English</a> | <a href="es.html">Español</a></p>
   <h1>Política de privacidad (Xecho)</h1>
-  <p class="date">Fecha de establecimiento: 26 de octubre de 2026<br>Fecha de revisión: 18 de noviembre de 2026</p>
+  <p class="date">Fecha de establecimiento: 26 de octubre de 2026<br>Fecha de revisión: 19 de noviembre de 2026</p>
   <p>RAKKO-LAB ("nosotros") establece a continuación cómo la app de Android "Xecho" (la "App") trata la información de los usuarios.</p>
 
   <h2>1. Qué hace la App</h2>
@@ -47,6 +47,7 @@
     <li>Las fechas, las horas y el número de veces que el usuario mostró cada post</li>
     <li>Registros para comprobar que la App funciona (si la lectura tuvo éxito, el tipo de pantalla y la fecha y hora; no contienen texto de posts ni nombres y se conservan solo 7 días)</li>
   </ul>
+  <p>En la pantalla de detalle de un post (la que se abre al abrir un post), X no pasa el texto de ese post a la función de accesibilidad. Por eso, solo mientras se muestra la pantalla de detalle de X, la App hace una captura de pantalla, recorta la parte que muestra ese post y lee el texto <strong>en el dispositivo</strong> (el reconocimiento de texto usa ML Kit de Google con un modelo incluido en la App). La captura no se guarda; se descarta justo después de leer el texto. El texto leído se guarda como los datos de arriba. Esta captura se puede desactivar en la configuración de la App.</p>
   <p>La App nunca opera X (no toca, no se desplaza, no da Me gusta, no publica ni hace nada más).</p>
 
   <h2>3. Dónde se guarda la información y envío fuera del dispositivo</h2>
@@ -54,6 +55,7 @@
     <li>Todo se guarda <strong>en el dispositivo del usuario</strong>.</li>
     <li>La App <strong>no tiene permiso de internet</strong>. Por lo tanto, los registros nunca se envían a nuestros servidores ni a los de terceros.</li>
     <li>No podemos ver los registros del usuario.</li>
+    <li>El componente de reconocimiento de texto (ML Kit de Google) y el de compras dentro de la app incluyen mecanismos que envían información de uso, pero como la App no tiene permiso de internet, no se envía nada.</li>
     <li>La App también está excluida de las funciones de copia de seguridad del dispositivo (como la copia de seguridad de Google).</li>
   </ul>
 
@@ -79,6 +81,7 @@
   <h2>7. Permisos que usa</h2>
   <ul>
     <li><strong>Servicio de accesibilidad (BIND_ACCESSIBILITY_SERVICE)</strong>: para la lectura descrita en la sección 2. Solo funciona cuando el usuario lo activa en la configuración de accesibilidad, y se puede desactivar en cualquier momento.</li>
+    <li><strong>Capturas de pantalla (canTakeScreenshot del servicio de accesibilidad)</strong>: para leer la pantalla de detalle descrita en la sección 2. Las capturas no se guardan. Se declara como una función del servicio de accesibilidad, no como un permiso de Android.</li>
     <li><strong>Notificaciones (POST_NOTIFICATIONS)</strong>: para avisar al usuario cuando el registro se ha detenido.</li>
     <li><strong>Compras dentro de la app (com.android.vending.BILLING)</strong>: para las compras dentro de la app mediante Google Play.</li>
   </ul>

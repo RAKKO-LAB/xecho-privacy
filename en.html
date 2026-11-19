@@ -28,7 +28,7 @@
 <body>
   <p class="lang"><a href="./">日本語</a> | <a href="en.html">English</a> | <a href="es.html">Español</a></p>
   <h1>Privacy Policy (Xecho)</h1>
-  <p class="date">Established: October 26, 2026<br>Revised: November 18, 2026</p>
+  <p class="date">Established: October 26, 2026<br>Revised: November 19, 2026</p>
   <p>RAKKO-LAB ("we") sets out below how the Android app "Xecho" (the "App") handles users' information.</p>
 
   <h2>1. What the App does</h2>
@@ -47,6 +47,7 @@
     <li>The dates, times and number of times the user displayed each post</li>
     <li>Logs for checking that the App works (whether reading succeeded, the type of screen, and the date and time; they contain no post text or names and are kept for 7 days only)</li>
   </ul>
+  <p>On a post's detail screen (the screen that opens when you open a post), X does not pass the text of that post to the Accessibility feature. So, only while X's detail screen is displayed, the App takes a screenshot, cuts out the part showing that post and reads the text <strong>on the device</strong> (text recognition uses Google's ML Kit with a model bundled in the App). The screenshot is not saved; it is discarded right after the text is read. The text that is read is saved as the items above. This screenshot can be turned off in the App's settings.</p>
   <p>The App never operates X (no tapping, scrolling, liking, posting or anything else).</p>
 
   <h2>3. Where information is stored, and sending it outside the device</h2>
@@ -54,6 +55,7 @@
     <li>Everything is stored <strong>on the user's device</strong>.</li>
     <li>The App <strong>does not have internet permission</strong>. Records are therefore never sent to our servers or to any third party's servers.</li>
     <li>We cannot see the user's records.</li>
+    <li>The text recognition component (Google's ML Kit) and the in-app purchase component include mechanisms that send usage information, but because the App does not have internet permission, nothing is sent.</li>
     <li>The App is also excluded from the device's backup features (such as Google backup).</li>
   </ul>
 
@@ -79,6 +81,7 @@
   <h2>7. Permissions used</h2>
   <ul>
     <li><strong>Accessibility service (BIND_ACCESSIBILITY_SERVICE)</strong>: for the reading described in section 2. It works only when the user turns it on in Accessibility settings, and can be turned off at any time.</li>
+    <li><strong>Screenshots (canTakeScreenshot of the accessibility service)</strong>: for reading the detail screen described in section 2. Screenshots are not saved. This is declared as a capability of the accessibility service, not as an Android permission.</li>
     <li><strong>Notifications (POST_NOTIFICATIONS)</strong>: to let the user know when recording has stopped.</li>
     <li><strong>In-app purchases (com.android.vending.BILLING)</strong>: for in-app purchases through Google Play.</li>
   </ul>
